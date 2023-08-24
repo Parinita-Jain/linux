@@ -1,0 +1,93 @@
+Here are the Linux commands for each of the steps you've outlined:
+
+User Account Creation:
+
+
+sudo adduser jane
+sudo adduser jack
+Separate Home Directories:
+The system automatically creates separate home directories for each user.
+
+Common Repository Script:
+Create a directory for the common repository and set permissions:
+
+
+sudo mkdir /common_repo
+sudo chmod 770 /common_repo
+Git Installation on Remote System:
+Install Git on the remote system:
+
+sudo apt update
+sudo apt install git
+Cron Job for Cleaning /tmp:
+Edit the crontab for the user:
+
+crontab -e
+Add the following line to delete empty files and directories daily at 00:00 am:
+
+
+0 0 * * * find /tmp -type f -empty -delete && find /tmp -type d -empty -delete
+Cron Job for Weekly System Upgrade:
+Edit the root crontab:
+
+
+
+sudo crontab -e
+Add the following line to upgrade the system every Tuesday at 6:00 am:
+
+
+0 6 * * 2 apt update && apt upgrade -y
+System Monitoring Script:
+Create a script (e.g., monitor.sh) with the necessary commands to monitor system metrics.
+
+Version Control with Git:
+Initialize a Git repository for the monitoring script:
+
+cd /path/to/script
+git init
+git add .
+git commit -m "Initial commit"
+Remote Server Data Collection and Maintenance:
+Use SSH to run scripts remotely and manage the server:
+
+
+ssh remote_user@remote_server 'bash -s' < local_script.sh
+YouTube Access Restriction:
+Configure firewall rules using iptables to block YouTube access.
+
+Here's a general approach to blocking YouTube using iptables:
+
+Identify YouTube IP Ranges:
+Find the IP ranges used by YouTube. You can use tools like whois or online IP lookup services to get the IP ranges associated with YouTube.
+
+Block the IP Ranges:
+Using the identified IP ranges, you can add iptables rules to block outbound traffic to those IP addresses. For example, if the IP ranges are IP_RANGE_1, 
+IP_RANGE_2, etc.:
+
+
+sudo iptables -A OUTPUT -d IP_RANGE_1 -j DROP
+sudo iptables -A OUTPUT -d IP_RANGE_2 -j DROP
+# Add more rules as needed
+Persisting Rules:
+The rules you add using iptables are temporary and will be lost after a system reboot. To make them persistent, you can use a tool like iptables-persistent:
+
+
+sudo apt update
+sudo apt install iptables-persistent
+During installation, it will prompt you to save the current rules. Once installed, any changes you make using iptables commands will be automatically saved and restored on system boot.
+
+Testing:
+After setting up the rules, test them by attempting to access YouTube from a browser. If the access is blocked, the page won't load.
+
+Remember that this method may not be completely effective, as IP ranges can change and users might find ways to bypass these restrictions. 
+More advanced solutions involve content filtering proxies or DNS-level filtering.
+
+Additionally, be careful when modifying firewall rules, as incorrect configurations can lead to unexpected consequences. 
+Always have a backup plan, especially when implementing security measures.
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+SELinux (Security-Enhanced Linux):
+
+Security Policy at SELinux:
+SELinux is a security framework for Linux that provides a more granular and fine-tuned control over access privileges, enhancing system security. It enforces Mandatory Access Control (MAC) policies that restrict processes and users, reducing the potential impact of security vulnerabilities.
+
+Basic Architecture of SELinux:
+SELinux operates on a set of security contexts assigned to subjects (processes, users) and objects (files, devices) to determine access rights. It uses labels and policies to control access.
+
+SELinux Features and Use Cases:
+
+Type Enforcement (TE): Controls access based on object and subject types. It's useful to prevent unauthorized access or manipulation of sensitive resources.
+Role-Based Access Control (RBAC): Allows different users to have different roles and associated permissions.
+Multi-Level Security (MLS): Enables strict access controls based on sensitivity labels.
+Multi-Category Security (MCS): Allows multiple categories of information sharing between processes with different labels.
+Domain and User Transitions: Ensures that processes operate with minimal necessary privileges.
+Linux Hardening and Alternatives to SELinux:
+
+Linux Hardening: This involves securing the Linux system by implementing various security measures such as disabling unnecessary services, implementing firewalls, applying patches regularly, using strong passwords, etc.
+
+AppArmor: Another Mandatory Access Control framework like SELinux but with a focus on profile-based access control. It confines applications to a certain set of actions defined by profiles.
+
+Seccomp (Secure Computing Mode): It restricts the system calls available to a process, reducing the attack surface.
+
+Virtualization and Containers:
+
+Virtualization: Involves running multiple virtual machines (VMs) on a single physical machine using a hypervisor. Each VM has its own operating system and resources.
+
+Containers: Use OS-level virtualization to run isolated processes on a shared OS kernel. They're lightweight and portable, allowing for efficient application deployment.
+
+Differences between Virtualization and Containers:
+
+Isolation: VMs provide stronger isolation as each VM runs its own OS. Containers share the host OS kernel, offering less isolation but are more lightweight.
+
+Resource Overhead: Containers have lower resource overhead since they share the host OS, whereas VMs need their own OS and resources.
+
+Portability: Containers are highly portable since they include the application and its dependencies. VMs might need additional configuration when moving between different hypervisors.
+
+Remember, SELinux, Linux hardening practices, and security frameworks like AppArmor can significantly enhance the security posture of a Linux system. Understanding these concepts and implementing them appropriately helps ensure a robust and secure computing environment.
+
+
+
+
+

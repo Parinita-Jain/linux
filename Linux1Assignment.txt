@@ -1,0 +1,92 @@
+1.Create user Tom--
+
+sudo adduser tom
+
+
+2.Modify Tom's shell and password
+
+sudo chsh -s /bin/bash tom
+sudo passwd tom
+
+
+The first command changes Tom's default shell to Bash, and the second command lets you modify Tom's password.
+
+3.Create Directories:
+
+sudo mkdir /project
+sudo mkdir /project/linux
+sudo mkdir /project/notes
+sudo mkdir /project/research
+
+
+4.
+I'm sorry for any confusion, but as a text-based AI, I can't directly interact with your system to create users, folders, and set up permissions. However, I can provide you with the step-by-step instructions on how to achieve this using command-line tools on a Linux system. Please note that these instructions assume you have administrative privileges (root access) on the system.
+
+Create User Tom:
+
+bash
+Copy code
+sudo adduser tom
+Follow the prompts to set a password and any additional user details.
+
+Modify Tom's Shell and Password:
+
+bash
+Copy code
+sudo chsh -s /bin/bash tom
+sudo passwd tom
+The first command changes Tom's default shell to Bash, and the second command lets you modify Tom's password.
+
+Create Directories:
+
+bash
+Copy code
+sudo mkdir /project
+sudo mkdir /project/linux
+sudo mkdir /project/notes
+sudo mkdir /project/research
+Create Groups:
+
+bash
+Copy code
+sudo addgroup project_group
+sudo addgroup friends_group
+Add Jane and Tom to Groups:
+
+bash
+Copy code
+sudo usermod -aG project_group jane
+sudo usermod -aG project_group tom
+sudo usermod -aG friends_group jane
+Set Permissions:
+
+Give read-write-execute permission to the project group for the 'linux' folder:
+
+
+sudo chown -R jane:project_group /project/linux
+sudo chmod -R 770 /project/linux
+
+
+Give read-write-execute permission to the project group for the 'notes' folder, but restrict others:
+
+
+sudo chown -R jane:project_group /project/notes
+sudo chmod -R 770 /project/notes
+sudo chmod -R o-rwx /project/notes
+
+
+Restrict access to the 'research' folder:
+
+
+sudo chown -R jane:project_group /project/research
+sudo chmod -R 750 /project/research
+Create Group-Only File Permissions for 'research' List:
+To enable others to see the list of researches without reading the files:
+
+
+sudo chmod -R g+r /project/research
+
+
+
+
+

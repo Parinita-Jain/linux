@@ -1,0 +1,52 @@
+1.Connect Tom and Tina's Laptops:
+
+Connect laptops via LAN cable or wireless if they are in close proximity.
+
+2.Check Subnet and Ping:
+
+Run ifconfig on each laptop to find their IP addresses and subnet.
+Use the ping command to check if they can reach each other's laptops:
+
+ping <other_ip_address>
+Remote Log-In (SSH vs. Telnet):
+
+SSH (Secure Shell): SSH is a secure remote log-in protocol that provides encrypted communication. It's recommended for security reasons. To SSH into another machine:
+
+
+ssh username@remote_ip
+
+Telnet: Telnet is not secure and transmits data in plaintext. It's not recommended for sensitive tasks. To use Telnet:
+
+
+telnet remote_ip
+
+
+File Sharing Alternatives:
+
+FTP (File Transfer Protocol): Standard for transferring files over a network. Not secure as credentials are transmitted in plaintext.
+TFTP (Trivial File Transfer Protocol): Simple file transfer protocol often used for booting devices.
+SCP (Secure Copy Protocol): Secure file transfer over SSH.
+SFTP (SSH File Transfer Protocol): Securely transfer files using SSH encryption.
+Troubleshooting Tools:
+
+Wireshark: Network protocol analyzer to capture and analyze data.
+Tcpdump: Command-line packet analyzer.
+Netstat: Displays network connections, routing tables, interface statistics, masquerade connections, etc.
+Firewall Port Opening:
+
+Opening specific ports in the firewall is important to allow traffic for specific services. For example, if you're running a web server, you'll need to open port 80 for HTTP.
+
+DoS Attack and Remedy:
+
+DoS (Denial of Service) Attack: An attempt to overwhelm a system by flooding it with traffic.
+Remedy: Implement firewalls, rate limiting, and intrusion detection systems. Use services like DDoS protection to filter malicious traffic.
+Connecting to the Internet:
+
+Possible DoS Attack:
+If certain ports (e.g., HTTP port 80) are open and unprotected, attackers could flood the system with traffic, causing a DoS.
+Implement firewall rules to limit access to specific ports from untrusted sources.
+
+
+
+
+

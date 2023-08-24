@@ -1,0 +1,86 @@
+Jane's Laptop (Ubuntu):
+
+Upgrade Python to Python 3:
+
+
+# Check Python version
+python --version
+
+# Install Python 3 if not installed
+sudo apt update
+sudo apt install python3
+
+# Remove Python 2 (if needed)
+sudo apt remove python2
+
+Install MySQL:
+
+
+# Check if MySQL is installed
+mysql --version
+
+# Install MySQL if not installed
+sudo apt install mysql-server
+
+# Download Java tar.gz file (replace URL with actual URL)
+wget <java_tar_gz_url>
+
+# Extract Java tar.gz
+tar -xzf <java_tar_gz_file>
+
+# Move Java directory to /opt (optional but recommended)
+sudo mv <extracted_java_dir> /opt/
+
+# Provide executable permissions
+sudo chmod +x /opt/<java_dir>/bin/java
+
+# Add Java to system PATH (add this to ~/.bashrc for permanent effect)
+export PATH=$PATH:/opt/<java_dir>/bin
+
+
+Run Java After Boot:
+You can add the Java command to run at startup by adding it to the startup applications list.
+
+Tom's Laptop (CentOS):
+
+Check and Remove Python:
+
+
+# Check Python version
+python --version
+
+# Remove Python (if needed)
+sudo yum remove python
+
+
+Install MySQL:
+
+# Check if MySQL is installed
+mysql --version
+
+# Install MySQL if not installed
+sudo yum install mysql-server
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+
+
+Install Java from tar.gz:
+
+# Download Java tar.gz file (replace URL with actual URL)
+wget <java_tar_gz_url>
+
+# Extract Java tar.gz
+tar -xzf <java_tar_gz_file>
+
+# Move Java directory to /opt (optional but recommended)
+sudo mv <extracted_java_dir> /opt/
+
+# Provide executable permissions
+sudo chmod +x /opt/<java_dir>/bin/java
+
+# Add Java to system PATH (add this to ~/.bashrc for permanent effect)
+export PATH=$PATH:/opt/<java_dir>/bin
+
+
+Run Java After Boot:
+You can add the Java command to run at startup by adding it to the startup applications list.

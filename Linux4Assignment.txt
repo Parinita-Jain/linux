@@ -1,0 +1,87 @@
+Modular Approach with Different Communication Methods:
+
+Pipe-Based Communication:
+Pipes are a simple way for communication between a parent and child process.
+
+
+// Parent process
+int fd[2];
+pipe(fd);
+
+// Create child process
+if (fork() == 0) {
+    // Child process
+    close(fd[1]);
+    // Read from fd[0]
+} else {
+    // Parent process
+    close(fd[0]);
+    // Write to fd[1]
+}
+Named Pipe (FIFO) Communication:
+Named pipes (FIFOs) can be used for interprocess communication even between unrelated processes.
+
+
+mkfifo myfifo
+# In one terminal
+cat myfifo
+
+# In another terminal
+echo "Hello from other terminal" > myfifo
+IPC (Inter Process Communication):
+Methods like message queues, semaphores, and shared memory can be used for communication.
+
+
+// Create a message queue
+int msgqid = msgget(IPC_PRIVATE, 0666 | IPC_CREAT);
+
+// Send and receive messages using msgsnd and msgrcv
+File-Based Approach with Signal Passing:
+Use files and signals for communication and synchronization.
+
+
+// In one process
+write(fd, "Hello", strlen("Hello"));
+kill(pid, SIGUSR1); // Signal to notify the other process
+
+// In another process
+read(fd, buffer, buffer_size);
+// Signal handler to catch SIGUSR1 and act upon it
+Unix Domain Sockets (UDS):
+UDS provide a full-duplex communication channel between processes on the same system.
+
+
+// Create socket
+int sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
+
+// Bind and listen (server side)
+// Connect (client side)
+// Send and receive data
+Network Domain Sockets:
+Network domain sockets can be used for communication between different machines using IP addresses and ports.
+
+Using Git for Version Control:
+
+Install Git:
+
+sudo apt update
+sudo apt install git
+
+Basic Git Commands:
+
+git init: Initialize a new Git repository.
+git clone <repository_url>: Clone a remote repository.
+git add <file>: Stage changes for commit.
+git commit -m "Commit message": Commit staged changes.
+git push: Push local commits to a remote repository.
+git pull: Pull changes from a remote repository.
+git status: View the status of files in the repository.
+Running Programs on Different Laptops and Network Domain Sockets:
+
+You can use network domain sockets (socket with AF_INET and SOCK_STREAM) to communicate between different laptops over a network by specifying IP addresses and ports.
+
+
+
+
+
+
